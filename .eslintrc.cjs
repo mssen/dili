@@ -13,6 +13,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
   },
+  ignorePatterns: ['*.cjs'],
   rules: {
     'vue/multi-word-component-names': 'off',
   },
