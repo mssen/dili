@@ -15,7 +15,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@iconify/vue": "^4.1.1",
     "open-props": "^1.6.20",
+    "radix-vue": "^1.4.9",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
