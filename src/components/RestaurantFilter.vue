@@ -17,19 +17,19 @@ const options = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple'];
 </script>
 
 <template>
-  <ComboboxRoot v-model="v" class="root">
-    <ComboboxAnchor class="anchor">
+  <ComboboxRoot v-model="v" :class="$style.root">
+    <ComboboxAnchor :class="$style.anchor">
       <ComboboxInput placeholder="Find restaurant..." aria-label="find restaurant" />
       <ComboboxTrigger>
         <Icon icon="radix-icons:chevron-down" />
       </ComboboxTrigger>
     </ComboboxAnchor>
 
-    <ComboboxContent class="content">
+    <ComboboxContent :class="$style.content">
       <ComboboxViewport>
         <ComboboxEmpty />
 
-        <ComboboxItem class="item" v-for="(option, index) in options" :key="index" :value="option">
+        <ComboboxItem :class="$style.item" v-for="(option, index) in options" :key="index" :value="option">
           <span>
             {{ option }}
           </span>
@@ -39,7 +39,12 @@ const options = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple'];
   </ComboboxRoot>
 </template>
 
-<style scoped>
+<style module>
+button,
+input {
+  all: unset;
+}
+
 .root {
   position: relative;
 }
@@ -49,10 +54,19 @@ const options = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple'];
   align-items: center;
   justify-content: between;
   gap: var(--size-1);
+  border-radius: var(--radius-2);
+  border: var(--border-size-2) solid var(--text-2);
+  background: var(--surface-1);
+  padding: var(--size-2);
+}
+
+.anchor:hover {
+  background: var(--surface-2);
 }
 
 .content {
   z-index: var(--layer-4);
+  width: 100%;
   position: absolute;
   overflow: hidden;
   background-color: var(--surface-2);
@@ -64,7 +78,8 @@ const options = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple'];
 
 .item {
   padding-inline: var(--size-2);
-  border-radius: var(--radius-1);
+  padding-block: var(--size-2);
+  border-radius: var(--radius-2);
 }
 
 .item[data-highlighted] {
