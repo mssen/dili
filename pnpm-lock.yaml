@@ -8,6 +8,9 @@ dependencies:
   '@iconify/vue':
     specifier: ^4.1.1
     version: 4.1.1(vue@3.4.21)
+  dexie:
+    specifier: ^4.0.1
+    version: 4.0.1
   open-props:
     specifier: ^1.6.20
     version: 1.6.20
@@ -1255,6 +1258,10 @@ packages:
     resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
     engines: {node: '>=6'}
     dev: true
+
+  /dexie@4.0.1:
+    resolution: {integrity: sha512-wSNn+TcCh+DuE2pdg058K3MhxA4g+IiZlW7yGz4cMd/t3z2rJXZcV3HDxZljbrICU2Iq0qY4UHnbolTMK/+bcA==}
+    dev: false
 
   /diff-sequences@29.6.3:
     resolution: {integrity: sha512-EjePK1srD3P08o2j4f0ExnylqRs5B9tJjcp9t1krH2qRi8CCdsYfwe9JgSLurFBWwq4uOlipzfk5fHNvwFKr8Q==}

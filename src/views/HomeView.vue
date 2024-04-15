@@ -1,5 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import RestaurantForm from '@/components/RestaurantForm.vue';
+</script>
 
 <template>
-  <p>A create menu probably</p>
+  <RestaurantForm />
 </template>

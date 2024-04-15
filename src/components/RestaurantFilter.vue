@@ -19,8 +19,8 @@ const options = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple'];
 <template>
   <ComboboxRoot v-model="v" :class="$style.root">
     <ComboboxAnchor :class="$style.anchor">
-      <ComboboxInput placeholder="Find restaurant..." aria-label="find restaurant" />
-      <ComboboxTrigger>
+      <ComboboxInput placeholder="Find restaurant..." aria-label="find restaurant" :class="$style.unset" />
+      <ComboboxTrigger :class="$style.unset">
         <Icon icon="radix-icons:chevron-down" />
       </ComboboxTrigger>
     </ComboboxAnchor>
@@ -40,8 +40,7 @@ const options = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple'];
 </template>
 
 <style module>
-button,
-input {
+.unset {
   all: unset;
 }
 
