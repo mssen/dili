@@ -15,7 +15,7 @@ const onSubmit = async () => {
     <h1>Create Restaurant</h1>
     <label for="restaurant-name">
       Name
-      <input required autocomplete="off" :class="$style.input" :value="name" id="restaurant-name" type="text" />
+      <input required autocomplete="off" :class="$style.input" v-model="name" id="restaurant-name" name="restaurant-name" type="text" />
     </label>
     <button type="submit">Create</button>
   </form>
