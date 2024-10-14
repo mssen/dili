@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { db } from '@/store/db';
+import { store } from '@/store';
 import router from '@/router';
 
 const name = ref('');
 const onSubmit = async () => {
-  const id = await db.restaurants.add({ name: name.value });
-  router.push(`/restaurant/${id}`);
+  const id = store.addRow('restaurants', { name: name.value });
+  if (typeof id === 'string') {
+    router.push(`/restaurant/${id}`);
+  } else {
+    // TODO: better error handling
+    console.error('Invalid row!');
+  }
 };
 </script>
 
@@ -15,7 +20,15 @@ const onSubmit = async () => {
     <h1>Create Restaurant</h1>
     <label for="restaurant-name">
       Name
-      <input required autocomplete="off" :class="$style.input" v-model="name" id="restaurant-name" name="restaurant-name" type="text" />
+      <input
+        required
+        autocomplete="off"
+        :class="$style.input"
+        v-model="name"
+        id="restaurant-name"
+        name="restaurant-name"
+        type="text"
+      />
     </label>
     <button type="submit">Create</button>
   </form>
