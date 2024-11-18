@@ -17,19 +17,20 @@ const options = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple'];
 </script>
 
 <template>
-  <ComboboxRoot v-model="v" :class="$style.root">
-    <ComboboxAnchor :class="$style.anchor">
-      <ComboboxInput placeholder="Find restaurant..." aria-label="find restaurant" :class="$style.unset" />
-      <ComboboxTrigger :class="$style.unset">
+  <ComboboxRoot v-model="v" class="root">
+    <ComboboxAnchor class="anchor">
+      <!-- FIXME: Focus is bad on this -->
+      <ComboboxInput placeholder="Find restaurant..." aria-label="find restaurant" class="unset" />
+      <ComboboxTrigger class="unset">
         <Icon icon="radix-icons:chevron-down" />
       </ComboboxTrigger>
     </ComboboxAnchor>
 
-    <ComboboxContent :class="$style.content">
+    <ComboboxContent class="content">
       <ComboboxViewport>
         <ComboboxEmpty />
 
-        <ComboboxItem :class="$style.item" v-for="(option, index) in options" :key="index" :value="option">
+        <ComboboxItem class="item" v-for="(option, index) in options" :key="index" :value="option">
           <span>
             {{ option }}
           </span>
@@ -39,7 +40,7 @@ const options = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple'];
   </ComboboxRoot>
 </template>
 
-<style module>
+<style scoped>
 .unset {
   all: unset;
 }

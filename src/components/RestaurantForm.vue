@@ -4,7 +4,7 @@ import { store } from '@/store';
 import router from '@/router';
 
 const name = ref('');
-const onSubmit = async () => {
+const onSubmit = () => {
   const id = store.addRow('restaurants', { name: name.value });
   if (typeof id === 'string') {
     router.push(`/restaurant/${id}`);
@@ -16,14 +16,14 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <form @submit.prevent="onSubmit" :class="$style.form">
+  <form @submit.prevent="onSubmit" class="form">
     <h1>Create Restaurant</h1>
     <label for="restaurant-name">
       Name
       <input
         required
         autocomplete="off"
-        :class="$style.input"
+        class="input"
         v-model="name"
         id="restaurant-name"
         name="restaurant-name"
@@ -34,7 +34,7 @@ const onSubmit = async () => {
   </form>
 </template>
 
-<style module>
+<style scoped>
 .form {
   display: flex;
   flex-direction: column;

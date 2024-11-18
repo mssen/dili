@@ -16,32 +16,24 @@ const onSubmit = () => {
 </script>
 
 <template>
-  <form @submit.prevent="onSubmit" :class="$style.form">
+  <form @submit.prevent="onSubmit" class="form">
     <h2>Create Food</h2>
     <label for="food-name">
       Name
-      <input
-        required
-        autocomplete="off"
-        :class="$style.input"
-        v-model="name"
-        id="food-name"
-        name="food-name"
-        type="text"
-      />
+      <input required autocomplete="off" class="input" v-model="name" id="food-name" name="food-name" type="text" />
     </label>
 
     <Rating />
 
     <label for="food-note">
       Note
-      <textarea autocomplete="off" :class="$style.input" v-model="name" id="food-note" name="food-note" />
+      <textarea autocomplete="off" class="input" v-model="name" id="food-note" name="food-note" />
     </label>
     <button type="submit">Create</button>
   </form>
 </template>
 
-<style module>
+<style scoped>
 .form {
   display: flex;
   flex-direction: column;
