@@ -17,7 +17,7 @@ defineExpose({
 </script>
 
 <template>
-  <input v-model="currentValue" :value="value" :id="id" type="radio" name="rating" class="visually-hidden" />
+  <input v-model="currentValue" :value="value" :id="id" type="radio" name="rating" class="visually-hidden input" />
   <label :for="id">
     <span class="visually-hidden">{{ value }} star{{ value > 1 ? 's' : '' }}</span>
     <div :class="{ icon: true, hover: hoveredValue && value <= hoveredValue }" ref="starElement">
@@ -36,12 +36,19 @@ defineExpose({
 .icon {
   padding: var(--size-1);
   font-size: 1.2em;
+  border-radius: var(--radius-round);
 }
 
 .icon:hover,
 .hover,
 .selected {
   color: var(--color-primary);
+}
+
+input:focus + label {
+  /* TODO: design system focus color */
+  outline: var(--border-size-2) solid white;
+  border-radius: var(--radius-round);
 }
 
 .selected.hover {

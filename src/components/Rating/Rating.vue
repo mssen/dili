@@ -29,20 +29,33 @@ watchEffect(() => {
 </script>
 
 <template>
-  <p>Rating</p>
-  <div :class="$style.container">
-    <Star v-model="rating" ref="one" :value="1" :hovered-value="hoveredValue" />
-    <Star v-model="rating" ref="two" :value="2" :hovered-value="hoveredValue" />
-    <Star v-model="rating" ref="three" :value="3" :hovered-value="hoveredValue" />
-    <Star v-model="rating" ref="four" :value="4" :hovered-value="hoveredValue" />
-    <Star v-model="rating" ref="five" :value="5" :hovered-value="hoveredValue" />
-  </div>
-
-  <p>Value: {{ rating }}</p>
+  <fieldset>
+    <legend>Rating</legend>
+    <div class="container">
+      <Star v-model="rating" ref="one" :value="1" :hovered-value="hoveredValue" />
+      <Star v-model="rating" ref="two" :value="2" :hovered-value="hoveredValue" />
+      <Star v-model="rating" ref="three" :value="3" :hovered-value="hoveredValue" />
+      <Star v-model="rating" ref="four" :value="4" :hovered-value="hoveredValue" />
+      <Star v-model="rating" ref="five" :value="5" :hovered-value="hoveredValue" />
+      <div class="text">
+        {{ rating }}
+        <span v-if="rating">{{ `Star${rating > 1 ? 's' : ''}` }}</span>
+      </div>
+    </div>
+  </fieldset>
 </template>
 
-<style lang="css" module>
+<style lang="css" scoped>
+fieldset {
+  all: unset;
+}
+
 .container {
   display: flex;
+  align-items: center;
+}
+
+.text {
+  margin-inline-start: var(--size-2);
 }
 </style>
