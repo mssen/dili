@@ -1,4 +1,4 @@
-import { createStore } from 'tinybase/with-schemas';
+import { createRelationships, createStore } from 'tinybase/with-schemas';
 
 export const store = createStore().setTablesSchema({
   restaurants: {
@@ -11,3 +11,6 @@ export const store = createStore().setTablesSchema({
     restaurantId: { type: 'string' },
   },
 });
+
+const relationships = createRelationships(store);
+relationships.setRelationshipDefinition('restaurantFood', 'food', 'restaurants', 'restaurantId');

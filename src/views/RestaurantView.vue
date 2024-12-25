@@ -7,6 +7,7 @@ import FoodForm from '@/components/FoodForm.vue';
 type State = 'loading' | 'error' | 'valid';
 
 const route = useRoute();
+const id = route.params.id as string;
 
 const state = ref<State>('loading');
 const restaurant = ref<string>();
@@ -26,14 +27,14 @@ const fetchRestaurant = (id: string | string[]) => {
   }
 };
 
-watch(() => route.params.id, fetchRestaurant, { immediate: true });
+watch(() => id, fetchRestaurant, { immediate: true });
 </script>
 
 <template>
   <p v-if="state === 'loading'">Loading...</p>
   <div v-else-if="state === 'valid' && restaurant">
     <h1>{{ restaurant }}</h1>
-    <FoodForm />
+    <FoodForm :restaurant-id="id" />
   </div>
   <div v-else>
     <p>Error!</p>

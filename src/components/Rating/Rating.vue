@@ -2,7 +2,7 @@
 import { ref, useTemplateRef, watchEffect } from 'vue';
 import Star, { type RatingValue } from './Star.vue';
 
-const rating = ref<RatingValue | undefined>(undefined);
+const rating = defineModel<RatingValue | undefined>(undefined);
 
 const hoveredValue = ref<RatingValue | undefined>(undefined);
 const oneRef = useTemplateRef('one');
