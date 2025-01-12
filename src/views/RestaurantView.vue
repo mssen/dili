@@ -3,6 +3,7 @@ import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { store } from '@/store';
 import FoodForm from '@/components/FoodForm.vue';
+import FoodList from '@/components/FoodList.vue';
 
 type State = 'loading' | 'error' | 'valid';
 
@@ -35,6 +36,7 @@ watch(() => id, fetchRestaurant, { immediate: true });
   <div v-else-if="state === 'valid' && restaurant">
     <h1>{{ restaurant }}</h1>
     <FoodForm :restaurant-id="id" />
+    <FoodList :restaurant-id="id" />
   </div>
   <div v-else>
     <p>Error!</p>

@@ -12,5 +12,5 @@ export const store = createStore().setTablesSchema({
   },
 });
 
-const relationships = createRelationships(store);
+export const relationships = createRelationships(store);
 relationships.setRelationshipDefinition('restaurantFood', 'food', 'restaurants', 'restaurantId');
