@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ViewRating from './Rating/ViewRating.vue';
+
 export type Food = {
   name: string;
   rating: number;
@@ -10,6 +12,6 @@ const props = defineProps<{ food: Food }>();
 
 <template>
   <h3>{{ props.food.name }}</h3>
-  <!-- Read only rating component here -->
+  <ViewRating :value="props.food.rating" />
   <p v-if="props.food.note">{{ props.food.note }}</p>
 </template>
