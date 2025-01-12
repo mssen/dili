@@ -2,7 +2,6 @@
 import { Icon } from '@iconify/vue';
 
 const props = defineProps<{ value: number }>();
-console.log(props.value);
 </script>
 
 <template>
