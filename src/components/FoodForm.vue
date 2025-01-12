@@ -10,9 +10,13 @@ const rating = ref<RatingValue | undefined>(undefined);
 const note = ref('');
 
 const onSubmit = () => {
-  const id = store.addRow('food', { name: name.value, note: note.value, restaurantId: props.restaurantId });
+  const id = store.addRow('food', {
+    name: name.value,
+    rating: rating.value,
+    note: note.value,
+    restaurantId: props.restaurantId,
+  });
   if (typeof id === 'string') {
-    console.log('Success!', id);
     name.value = '';
     rating.value = undefined;
     note.value = '';
