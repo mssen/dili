@@ -34,11 +34,22 @@ watch(() => id, fetchRestaurant, { immediate: true });
 <template>
   <p v-if="state === 'loading'">Loading...</p>
   <div v-else-if="state === 'valid' && restaurant">
-    <h1>{{ restaurant }}</h1>
-    <FoodForm :restaurant-id="id" />
+    <div class="header">
+      <h1>{{ restaurant }}</h1>
+      <FoodForm :restaurant-id="id" />
+    </div>
     <FoodList :restaurant-id="id" />
   </div>
   <div v-else>
     <p>Error!</p>
   </div>
 </template>
+
+<style lang="css" scoped>
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--size-4);
+}
+</style>

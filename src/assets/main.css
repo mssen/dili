@@ -10,4 +10,10 @@
   width: 1px;
 }
 
+.icon-button {
+  box-shadow: none;
+  background: transparent;
+  border: none;
+}
+
 /* Use this for base HTML element styles */
