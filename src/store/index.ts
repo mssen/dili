@@ -1,4 +1,5 @@
 import { createRelationships, createStore } from 'tinybase/with-schemas';
+import { createIndexedDbPersister } from 'tinybase/persisters/persister-indexed-db/with-schemas';
 
 export const store = createStore().setTablesSchema({
   restaurants: {
@@ -14,3 +15,5 @@ export const store = createStore().setTablesSchema({
 
 export const relationships = createRelationships(store);
 relationships.setRelationshipDefinition('restaurantFood', 'food', 'restaurants', 'restaurantId');
+
+export const persister = createIndexedDbPersister(store, 'dili');

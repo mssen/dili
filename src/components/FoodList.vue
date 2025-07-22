@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { relationships, store } from '@/store';
-import { onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import FoodItem, { type Food } from './FoodItem.vue';
 
 const props = defineProps<{ restaurantId: string }>();
 const foodList = ref<Food[]>([]);
-const listenerId = relationships.addLocalRowIdsListener('restaurantFood', props.restaurantId, () => {
+
+const loadFood = () => {
   const foodIds = relationships.getLocalRowIds('restaurantFood', props.restaurantId);
   foodList.value = foodIds.map((id) => {
     const storeFood = store.getRow('food', id);
@@ -16,6 +17,14 @@ const listenerId = relationships.addLocalRowIdsListener('restaurantFood', props.
       note: storeFood.note,
     };
   });
+};
+
+const listenerId = relationships.addLocalRowIdsListener('restaurantFood', props.restaurantId, () => {
+  loadFood();
+});
+
+onMounted(() => {
+  loadFood();
 });
 
 onUnmounted(() => {
