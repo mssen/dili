@@ -12,6 +12,7 @@ const loadFood = () => {
     const storeFood = store.getRow('food', id);
 
     return {
+      id,
       name: storeFood.name ?? 'Unnamed',
       rating: storeFood.rating ?? 1,
       note: storeFood.note,

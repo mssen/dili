@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import { store } from '@/store';
+import { useRoute, useRouter } from 'vue-router';
+import { relationships, store } from '@/store';
 import FoodForm from '@/components/FoodForm.vue';
 import FoodList from '@/components/FoodList.vue';
 
 type State = 'loading' | 'error' | 'valid';
 
 const route = useRoute();
+const router = useRouter();
 const id = route.params.id as string;
 
 const state = ref<State>('loading');
@@ -28,6 +29,13 @@ const fetchRestaurant = (id: string | string[]) => {
   }
 };
 
+const handleDelete = () => {
+  const foodIds = relationships.getLocalRowIds('restaurantFood', id);
+  foodIds.forEach((foodId) => store.delRow('food', foodId));
+  store.delRow('restaurants', id);
+  router.replace('/');
+};
+
 watch(() => id, fetchRestaurant, { immediate: true });
 </script>
 
@@ -36,7 +44,10 @@ watch(() => id, fetchRestaurant, { immediate: true });
   <div v-else-if="state === 'valid' && restaurant">
     <div class="header">
       <h1>{{ restaurant }}</h1>
-      <FoodForm :restaurant-id="id" />
+      <div class="actions">
+        <FoodForm :restaurant-id="id" />
+        <button @click="handleDelete">Delete</button>
+      </div>
     </div>
     <FoodList :restaurant-id="id" />
   </div>
@@ -51,5 +62,11 @@ watch(() => id, fetchRestaurant, { immediate: true });
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--size-4);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--size-3);
 }
 </style>
