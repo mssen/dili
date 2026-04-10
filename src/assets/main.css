@@ -16,4 +16,8 @@
   border: none;
 }
 
+.router-link-active {
+  color: red;
+}
+
 /* Use this for base HTML element styles */

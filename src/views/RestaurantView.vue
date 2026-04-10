@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 import { relationships, store } from '@/store';
 import FoodForm from '@/components/FoodForm.vue';
 import FoodList from '@/components/FoodList.vue';
 
 type State = 'loading' | 'error' | 'valid';
 
-const route = useRoute();
+const { id } = defineProps<{ id: string }>();
+
 const router = useRouter();
-const id = route.params.id as string;
 
 const state = ref<State>('loading');
 const restaurant = ref<string>();

@@ -17,3 +17,14 @@ export const relationships = createRelationships(store);
 relationships.setRelationshipDefinition('restaurantFood', 'food', 'restaurants', 'restaurantId');
 
 export const persister = createIndexedDbPersister(store, 'dili');
+
+export type Restaurant = {
+  id: string;
+  name: string;
+};
+
+export type Food = {
+  id: string;
+  name: string;
+  node?: string;
+};

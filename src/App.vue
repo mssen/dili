@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router';
 import RestaurantFilter from '@/components/RestaurantFilter.vue';
+import RestaurantList from '@/components/RestaurantList.vue';
 import { persister } from '@/store';
 
 const isLoading = ref(false);
@@ -20,13 +21,16 @@ onMounted(async () => {
     <RestaurantFilter />
   </header>
 
-  <main>
-    <p v-if="isLoading">Loading...</p>
-    <RouterView v-else />
-  </main>
+  <p v-if="isLoading">Loading...</p>
+  <div class="app-layout" v-else>
+    <RestaurantList />
+    <main>
+      <RouterView />
+    </main>
+  </div>
 </template>
 
-<style module>
+<style scoped>
 header {
   display: flex;
   justify-content: space-between;
@@ -35,6 +39,11 @@ header {
 
 main {
   max-inline-size: calc(var(--size-content-3) * 2);
-  margin: auto;
+  /* margin: auto; */
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: row;
 }
 </style>
