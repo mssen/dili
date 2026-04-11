@@ -27,3 +27,11 @@ onMounted(() => {
     </RouterLink>
   </nav>
 </template>
+
+<style scoped>
+nav {
+  display: flex;
+  flex-direction: column;
+  padding-inline: var(--size-3);
+}
+</style>
