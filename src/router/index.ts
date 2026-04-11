@@ -13,6 +13,7 @@ const router = createRouter({
     {
       path: '/restaurant/:id',
       name: 'restaurant',
+      props: true,
       component: RestaurantView,
     },
   ],
