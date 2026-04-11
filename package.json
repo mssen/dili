@@ -19,7 +19,7 @@
     "@vueuse/core": "^14.2.1",
     "open-props": "^1.7.23",
     "radix-vue": "^1.9.17",
-    "tinybase": "^8.0.2",
+    "tinybase": "^8.1.1",
     "vue": "^3.5.32",
     "vue-router": "^5.0.4"
   },
@@ -28,9 +28,9 @@
     "@total-typescript/ts-reset": "^0.6.1",
     "@tsconfig/node24": "^24.0.4",
     "@types/jsdom": "^28.0.1",
-    "@types/node": "^25.5.2",
+    "@types/node": "^25.6.0",
     "@vitejs/plugin-vue": "^6.0.5",
-    "@vitest/eslint-plugin": "^1.6.14",
+    "@vitest/eslint-plugin": "^1.6.15",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.7.0",
     "@vue/test-utils": "^2.4.6",
@@ -39,13 +39,13 @@
     "eslint-plugin-playwright": "^2.10.1",
     "eslint-plugin-vue": "~10.8.0",
     "jiti": "^2.6.1",
-    "jsdom": "^29.0.1",
+    "jsdom": "^29.0.2",
     "npm-run-all2": "^8.0.4",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.2",
     "typescript": "~6.0.2",
-    "vite": "^8.0.3",
+    "vite": "^8.0.8",
     "vite-plugin-vue-devtools": "^8.1.1",
-    "vitest": "^4.1.2",
+    "vitest": "^4.1.4",
     "vue-tsc": "^3.2.6"
   }
 }
