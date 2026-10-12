@@ -5,6 +5,7 @@
     "ms-playwright.playwright",
     "dbaeumer.vscode-eslint",
     "oxc.oxc-vscode",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "VoidZero.vite-plus-extension-pack"
   ]
 }
